@@ -2,16 +2,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
-
-unsigned int window_width = 800;
-unsigned int window_height = 600;
-
-void OnWindowSizeChanged(GLFWwindow * window, int width, int height)
-{
-    window_width = static_cast<unsigned int>(width);
-    window_height = static_cast<unsigned int>(height);
-    glViewport(0, 0, window_width, window_height);
-}
+#include <Engine/Window.h>
+#include <Engine/Util.h>
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -24,16 +16,13 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow * window = glfwCreateWindow(window_width, window_height, "ARPG", nullptr, nullptr);
-    glfwSetWindowSizeCallback(window, OnWindowSizeChanged);
+    auto *window = new Window();
 
-    if(!window)
+    if (!window->Initialise(800, 600, "ARPG", true))
     {
         glfwTerminate();
         return -1;
     }
-
-    glfwMakeContextCurrent(window);
 
     if(!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress))
     {
@@ -41,15 +30,16 @@ int main() {
         return -1;
     }
 
-    glViewport(0, 0, window_width, window_height);
     glClearColor(0.2, 0.2, 0.2, 1);
 
-    while(!glfwWindowShouldClose(window))
+    Util::Log("Test Log");
+
+    while (!window->ShouldClose())
     {
         glClear(GL_COLOR_BUFFER_BIT);
         glfwPollEvents();
-        glfwSwapBuffers(window);
+        window->SwapBuffers();
     }
 
-    return 0;
+    Util::SuccessExit();
 }
