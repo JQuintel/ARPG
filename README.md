@@ -25,3 +25,7 @@ I know the likelihood of people needing these is low, but here I go anyway. Unli
 2. Hit the "Open" button, and pick the folder.
 3. Wait for CLion to sort out it's CMake stuff (based on currently configured Toolchain - probably MinGW by default).
 4. Thats it.
+
+## Notes
+
+Note about architectures: I mentioned that you should pick the x64 modes, and that's because I've only bothered including x64 libraries. If you're on a x86 machine, first up, throw it out the window and get a better one. If thats not an option, I'll go back and add 32bit libraries. (But seriously...)
