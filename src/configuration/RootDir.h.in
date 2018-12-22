@@ -1,0 +1,10 @@
+//
+// Created by mikag on 12/22/2018.
+//
+
+#ifndef OPENGLTEST_ROOTDIR_H
+#define OPENGLTEST_ROOTDIR_H
+
+#define ROOT_DIR "@CMAKE_SOURCE_DIR@/"
+
+#endif //OPENGLTEST_ROOTDIR_H
