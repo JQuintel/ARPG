@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(OpenGLTest)
+project(ARPG)
 
 if (MSVC)
     link_directories("${CMAKE_SOURCE_DIR}/lib/msvc")
