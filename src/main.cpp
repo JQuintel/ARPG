@@ -16,7 +16,7 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    auto *window = new Window();
+    Window *window = new Window();
 
     if (!window->Initialise(800, 600, "ARPG", true))
     {
@@ -40,6 +40,8 @@ int main() {
         glfwPollEvents();
         window->SwapBuffers();
     }
+
+    window->Close();
 
     Util::SuccessExit();
 }

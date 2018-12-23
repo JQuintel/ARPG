@@ -49,6 +49,9 @@ public:
     /// Swap window buffers.
     void SwapBuffers();
 
+    /// Close the window
+    void Close();
+
     Window();
 
     ~Window();

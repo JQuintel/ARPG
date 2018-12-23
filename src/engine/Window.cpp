@@ -149,3 +149,8 @@ void Window::SwapBuffers()
 {
     glfwSwapBuffers(window);
 }
+
+void Window::Close()
+{
+    glfwTerminate();
+}
